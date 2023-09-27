@@ -16,16 +16,16 @@ connectDB();
 const app = express();
 
 //TESTING
-// var corsOptions = {
-//     origin: "http://localhost:5173",
-//     credentials: true
-//   };
-
-//PRODUCTION
-  var corsOptions = {
-    origin: ["http://0.0.0.0:5173","https://susshitechnologies.com","https://0.0.0.0:3000","http://0.0.0.0:0","https://0.0.0.0:0","http://localhost:3000","0.0.0.0/0","http://localhost:5173"],
+var corsOptions = {
+    origin: "http://localhost:5173",
     credentials: true
   };
+
+//PRODUCTION
+  // var corsOptions = {
+  //   origin: ["https://susshitechnologies.com","https://bahiascience.com"],
+  //   credentials: true
+  // };
   
 app.use(cors(corsOptions));
 app.use(bodyParser.json());

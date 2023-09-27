@@ -5,7 +5,7 @@ import randomBytes from 'randombytes'
 dotenv.config();
 
 
-const bucketName = process.env.BUCKET_NAME
+export const bucketName = process.env.BUCKET_NAME
 const bucketRegion = process.env.BUCKET_REGION
 const accessKeyId = process.env.ACCESS_KEY
 const secretAccessKey = process.env.SECRET_ACCESS_KEY
@@ -23,9 +23,11 @@ export async function generateUploadURL() {
     const rawBytes = await randomBytes(16)
     const imageName = rawBytes.toString('hex')
 
+    const key = `blogs/${imageName}`;
+
     const params = ({
         Bucket: bucketName,
-        Key: imageName,
+        Key: key,
         Expires: 60
     });
 

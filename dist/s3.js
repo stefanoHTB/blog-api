@@ -21,9 +21,10 @@ const s3 = new aws_sdk_1.default.S3({
 async function generateUploadURL() {
     const rawBytes = await (0, randombytes_1.default)(16);
     const imageName = rawBytes.toString('hex');
+    const key = `services/${imageName}`;
     const params = ({
         Bucket: bucketName,
-        Key: imageName,
+        Key: key,
         Expires: 60
     });
     const uploadURL = await s3.getSignedUrlPromise('putObject', params);

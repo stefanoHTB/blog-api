@@ -15,7 +15,7 @@ const port = process.env.PORT || 3000;
 connectDB();
 const app = (0, express_1.default)();
 var corsOptions = {
-    origin: ["http://0.0.0.0:5173", "https://susshitechnologies.com", "https://0.0.0.0:3000", "http://0.0.0.0:0", "https://0.0.0.0:0", "http://localhost:3000", "0.0.0.0/0", "http://localhost:5173"],
+    origin: "http://localhost:5173",
     credentials: true
 };
 app.use((0, cors_1.default)(corsOptions));
